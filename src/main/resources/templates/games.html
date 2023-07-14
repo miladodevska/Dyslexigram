@@ -21,12 +21,12 @@
                 <h1>Избери игра:</h1>
             </div>
             <div class="col text-right py-3">
-                <button class="px-3" id="user" th:text="${user}" disabled></button>
+                <button class="px-3" id="user" th:text="${user.getNickname()}" disabled></button>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-4" th:each="game : ${games}">
+            <div class="col-md-4 mb-4" th:each="game : ${games}">
                 <div class="card-sl">
                     <div class="card-image">
                         <img

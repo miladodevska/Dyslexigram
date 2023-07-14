@@ -31,110 +31,292 @@ public class DataInitializer {
 
     @PostConstruct
     public void init() {
-        //Игра 1 Ниво 1
+        /* --------------------------НИВО 1--------------------------------- */
 
-        Response response1 = new Response("А");
-        Response response2 = new Response("Е");
-        Response response3 = new Response("И");
-        Response response4 = new Response("О");
+        // Игра 1
+        Response response1G1L1 = new Response("А");
+        Response response2G1L1 = new Response("Е");
+        Response response3G1L1 = new Response("И");
+        Response response4G1L1 = new Response("О");
 
-        this.responseRepository.save(response1);
-        this.responseRepository.save(response2);
-        this.responseRepository.save(response3);
-        this.responseRepository.save(response4);
+        this.responseRepository.save(response1G1L1);
+        this.responseRepository.save(response2G1L1);
+        this.responseRepository.save(response3G1L1);
+        this.responseRepository.save(response4G1L1);
 
-        List<Response> responseList = new ArrayList<>(Arrays.asList(response1,response2,response3,response4));
+        List<Response> responseListG1L1 = new ArrayList<>(Arrays.asList(response1G1L1, response2G1L1, response3G1L1, response4G1L1));
 
-        Question question1 = new Question("П_НЕДЕЛНИК", "", responseList, response4);
-        Question question2 = new Question("УЧИТ_ЛКА", "", responseList, response3);
-        Question question3 = new Question("_ВТОМОБИЛ", "", responseList, response1);
+        Question question1G1L1 = new Question("П_НЕДЕЛНИК", "", responseListG1L1, response4G1L1);
+        Question question2G1L1 = new Question("УЧИТ_ЛКА", "", responseListG1L1, response3G1L1);
+        Question question3G1L1 = new Question("_ВТОМОБИЛ", "", responseListG1L1, response1G1L1);
 
-        this.questionRepository.save(question1);
-        this.questionRepository.save(question2);
-        this.questionRepository.save(question3);
+        this.questionRepository.save(question1G1L1);
+        this.questionRepository.save(question2G1L1);
+        this.questionRepository.save(question3G1L1);
 
-        List<Question> questionList = new ArrayList<>(Arrays.asList(question1,question2,question3));
+        List<Question> questionListG1L1 = new ArrayList<>(Arrays.asList(question1G1L1, question2G1L1, question3G1L1));
 
-        Game game1 = new Game("Погоди ја буквата",
+        Game game1level1 = new Game("Погоди ја буквата",
                 "Играта се состои од неколку зборови на кои им недостасуваат букви. Можете ли да погодете коjа буква недостасува?",
-                Level.Ниво1, "/images/game.jpg", questionList);
+                Level.Ниво1, "/images/game.jpg", questionListG1L1);
 
-        this.gameRepository.save(game1);
+        this.gameRepository.save(game1level1);
 
-        //Игра 1 Ниво 2
-        //TODO
 
-        //Игра 1 Ниво 3
-        //TODO
+        // Игра 2
+        Response response1G2L1 = new Response("сто и еден");
+        Response response2G2L1 = new Response("сто и единаесет");
+        Response response3G2L1 = new Response("петстотини");
+        Response response4G2L1 = new Response("педесет и осум");
 
-        //Игра 2 Ниво 1
-        //TODO
+        this.responseRepository.save(response1G2L1);
+        this.responseRepository.save(response2G2L1);
+        this.responseRepository.save(response3G2L1);
+        this.responseRepository.save(response4G2L1);
 
-        //Игра 2 Ниво 2
-        Response response1ForMathGame = new Response("4");
-        Response response2ForMathGame = new Response("20");
-        Response response3ForMathGame = new Response("0");
-        Response response4ForMathGame = new Response("1");
+        List<Response> responseListG2L1 = new ArrayList<>(Arrays.asList(response1G2L1, response2G2L1, response3G2L1, response4G2L1));
 
-        this.responseRepository.save(response1ForMathGame);
-        this.responseRepository.save(response2ForMathGame);
-        this.responseRepository.save(response3ForMathGame);
-        this.responseRepository.save(response4ForMathGame);
+        Question question1G2L1 = new Question("101", "", responseListG2L1, response1G2L1);
+        Question question2G2L1 = new Question("58", "", responseListG2L1, response4G2L1);
+        Question question3G2L1 = new Question("500", "", responseListG2L1, response3G2L1);
 
-        List<Response> responseListForMathGame = new ArrayList<>(Arrays.asList(response1ForMathGame,response2ForMathGame,response3ForMathGame,response4ForMathGame));
+        this.questionRepository.save(question1G2L1);
+        this.questionRepository.save(question2G2L1);
+        this.questionRepository.save(question3G2L1);
 
-        Question question1ForMathGame = new Question("2 + 2 =", "", responseListForMathGame, response1ForMathGame);
-        Question question2ForMathGame = new Question("10 * 2", "", responseListForMathGame, response2ForMathGame);
-        Question question3ForMathGame = new Question("11 - 11 = ", "", responseListForMathGame, response3ForMathGame);
+        List<Question> questionListG2L1 = new ArrayList<>(Arrays.asList(question1G2L1, question2G2L1, question3G2L1));
 
-        this.questionRepository.save(question1ForMathGame);
-        this.questionRepository.save(question2ForMathGame);
-        this.questionRepository.save(question3ForMathGame);
+        Game game2level1 = new Game("Погоди го бројот",
+                "Играта се состои од дадени броеви. Ваша задача е да погодите како се пишува точно.",
+                Level.Ниво1, "/images/number-game.jpg", questionListG2L1);
 
-        List<Question> questionListForMathGame = new ArrayList<>(Arrays.asList(question1ForMathGame,question2ForMathGame,question3ForMathGame));
+        this.gameRepository.save(game2level1);
 
-        Game gameMath = new Game("Реши го математичкиот израз",
-                "Играта се состои од неколку математички изрази кои од вас се бара да ги решите. Изразите се соодветно лесни.",
-                Level.Ниво2,"/images/mathGame.jpg",questionListForMathGame);
+        // Игра 3
+        Response response1G3L1 = new Response("Црвена");
+        Response response2G3L1 = new Response("Жолта");
+        Response response3G3L1 = new Response("Зелена");
+        Response response4G3L1 = new Response("Сина");
 
-        this.gameRepository.save(gameMath);
-        //Игра 2 Ниво 3
-        //TODO
+        this.responseRepository.save(response1G3L1);
+        this.responseRepository.save(response2G3L1);
+        this.responseRepository.save(response3G3L1);
+        this.responseRepository.save(response4G3L1);
 
-        //Игра 3 Ниво 1
-        Response response11 = new Response("Црвена");
-        Response response12 = new Response("Жолта");
-        Response response13 = new Response("Зелена");
-        Response response14 = new Response("Сина");
+        List<Response> responseListG3L1 = new ArrayList<>(Arrays.asList(response1G3L1, response2G3L1, response3G3L1, response4G3L1));
 
-        this.responseRepository.save(response11);
-        this.responseRepository.save(response12);
-        this.responseRepository.save(response13);
-        this.responseRepository.save(response14);
+        Question question1G3L1 = new Question("https://htmlcolorcodes.com/assets/images/colors/red-color-solid-background-1920x1080.png", "", responseListG3L1, response1G3L1);
+        Question question2G3L1 = new Question("https://www.travelandleisure.com/thmb/KTIha5CLifSoUD3gx0YP51xc3rY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/blue0517-4dfc85cb0200460ab717b101ac07888f.jpg", "", responseListG3L1, response4G3L1);
+        Question question3G3L1 = new Question("https://htmlcolorcodes.com/assets/images/colors/neon-green-color-solid-background-1920x1080.png", "", responseListG3L1, response3G3L1);
 
-        List<Response> responseList1 = new ArrayList<>(Arrays.asList(response11,response12,response13,response14));
+        this.questionRepository.save(question1G3L1);
+        this.questionRepository.save(question2G3L1);
+        this.questionRepository.save(question3G3L1);
 
-        Question question4 = new Question("https://htmlcolorcodes.com/assets/images/colors/red-color-solid-background-1920x1080.png", "", responseList1, response11);
-        Question question5 = new Question("https://www.travelandleisure.com/thmb/KTIha5CLifSoUD3gx0YP51xc3rY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/blue0517-4dfc85cb0200460ab717b101ac07888f.jpg", "", responseList1, response14);
-        Question question6 = new Question("https://htmlcolorcodes.com/assets/images/colors/neon-green-color-solid-background-1920x1080.png", "", responseList1, response13);
+        List<Question> questionListG3L1 = new ArrayList<>(Arrays.asList(question1G3L1, question2G3L1, question3G3L1));
 
-        this.questionRepository.save(question4);
-        this.questionRepository.save(question5);
-        this.questionRepository.save(question6);
+        Game game3level1 = new Game("Погоди ја бојата",
+                "Играта се состои од неколку слики со бои. Можете ли да погодите за коjа боја станува збор?",
+                Level.Ниво1, "/images/color.jpg", questionListG3L1);
 
-        List<Question> questionList1 = new ArrayList<>(Arrays.asList(question4,question5,question6));
+        this.gameRepository.save(game3level1);
 
-        Game game3 = new Game("Погоди ја бојата",
-                "Играта се состои од неколку слики со бои. Можете ли да погодете за коjа боја станува збор?",
-                Level.Ниво1, "/images/color.jpg", questionList1);
 
-        this.gameRepository.save(game3);
+        /* --------------------------НИВО 2--------------------------------- */
 
-        //Игра 3 Ниво 2
-        //TODO
+        // Игра 1
+        Response response1G1L2 = new Response("4");
+        Response response2G1L2 = new Response("20");
+        Response response3G1L2 = new Response("0");
+        Response response4G1L2 = new Response("1");
 
-        //Игра 3 Ниво 3
-        //TODO
+        this.responseRepository.save(response1G1L2);
+        this.responseRepository.save(response2G1L2);
+        this.responseRepository.save(response3G1L2);
+        this.responseRepository.save(response4G1L2);
 
+        List<Response> responseListG1L2 = new ArrayList<>(Arrays.asList(response1G1L2, response2G1L2, response3G1L2, response4G1L2));
+
+        Question question1G1L2 = new Question("2 + 2 =", "", responseListG1L2, response1G1L2);
+        Question question2G1L2 = new Question("10 * 2", "", responseListG1L2, response2G1L2);
+        Question question3G1L2 = new Question("11 - 11 = ", "", responseListG1L2, response3G1L2);
+
+        this.questionRepository.save(question1G1L2);
+        this.questionRepository.save(question2G1L2);
+        this.questionRepository.save(question3G1L2);
+
+        List<Question> questionListG1L2 = new ArrayList<>(Arrays.asList(question1G1L2, question2G1L2, question3G1L2));
+
+        Game game1level2 = new Game("Реши го математичкиот израз",
+                "Играта се состои од неколку математички изрази кои од вас се бара да ги решите.",
+                Level.Ниво2, "/images/mathGame.jpg", questionListG1L2);
+
+        this.gameRepository.save(game1level2);
+
+        // Игра 2
+        Response response1G2L2 = new Response("15");
+        Response response2G2L2 = new Response("5");
+        Response response3G2L2 = new Response("0");
+        Response response4G2L2 = new Response("12");
+
+        this.responseRepository.save(response1G2L2);
+        this.responseRepository.save(response2G2L2);
+        this.responseRepository.save(response3G2L2);
+        this.responseRepository.save(response4G2L2);
+
+        List<Response> responseListG2L2 = new ArrayList<>(Arrays.asList(
+                response1G2L2,
+                response2G2L2,
+                response3G2L2,
+                response4G2L2));
+
+        Question question1G2L2 = new Question("2 + _ = 7", "", responseListG2L2, response2G2L2);
+        Question question2G2L2 = new Question("_ * 2 = 30", "", responseListG2L2, response1G2L2);
+        Question question3G2L2 = new Question("55 - _ = 43", "", responseListG2L2, response4G2L2);
+
+        this.questionRepository.save(question1G2L2);
+        this.questionRepository.save(question2G2L2);
+        this.questionRepository.save(question3G2L2);
+
+        List<Question> questionListG2L2 = new ArrayList<>(Arrays.asList(question1G2L2, question2G2L2, question3G2L2));
+
+        Game game2level2 = new Game("Добиј го точниот резултат",
+                "Играта се состои од неколку математички изрази во кои недостасува некој број. Пронајдете го.",
+                Level.Ниво2, "/images/missingNumber.jpg", questionListG2L2);
+
+        this.gameRepository.save(game2level2);
+
+        // Игра 3
+        Response response1G3L2 = new Response("2 + 2");
+        Response response2G3L2 = new Response("10 + 3");
+        Response response3G3L2 = new Response("20 - 5");
+        Response response4G3L2 = new Response("12 - 1");
+
+        this.responseRepository.save(response1G3L2);
+        this.responseRepository.save(response2G3L2);
+        this.responseRepository.save(response3G3L2);
+        this.responseRepository.save(response4G3L2);
+
+        List<Response> responseListG3L2 = new ArrayList<>(Arrays.asList(response1G3L2, response2G3L2, response3G3L2, response4G3L2));
+
+        Question question1G3L2 = new Question("__ _ __ = 4", "", responseListG3L2, response1G3L2);
+        Question question2G3L2 = new Question("__ _ __ = 15", "", responseListG3L2, response3G3L2);
+        Question question3G3L2 = new Question("__ _ __ = 13", "", responseListG3L2, response2G3L2);
+
+        this.questionRepository.save(question1G3L2);
+        this.questionRepository.save(question2G3L2);
+        this.questionRepository.save(question3G3L2);
+
+        List<Question> questionListG3L2 = new ArrayList<>(Arrays.asList(question1G3L2, question2G3L2, question3G3L2));
+
+        Game game3level2 = new Game("Погоди го изразот", "Играта се состои од даден резултат за кој вие треба да го погодите соодветниот израз.",
+                Level.Ниво2, "/images/single-digit-subtraction-big.png", questionListG3L2);
+
+        this.gameRepository.save(game3level2);
+
+
+        /* --------------------------НИВО 3--------------------------------- */
+
+        //Игра 1
+
+        Response response1G1L3 = new Response("+");
+        Response response2G1L3 = new Response("-");
+        Response response3G1L3 = new Response("*");
+        Response response4G1L3 = new Response("/");
+
+        this.responseRepository.save(response1G1L3);
+        this.responseRepository.save(response2G1L3);
+        this.responseRepository.save(response3G1L3);
+        this.responseRepository.save(response4G1L3);
+
+        List<Response> responseListG1L3 = new ArrayList<>(Arrays.asList(response1G1L3, response2G1L3, response3G1L3, response4G1L3));
+
+        Question question1G1L3 = new Question("2 _ 2 = 4", "", responseListG1L3, response1G1L3);
+        Question question2G1L3 = new Question("13 _ 5 = 8", "", responseListG1L3, response2G1L3);
+        Question question3G1L3 = new Question("3 _ 11 = 33", "", responseListG1L3, response3G1L3);
+
+        this.questionRepository.save(question1G1L3);
+        this.questionRepository.save(question2G1L3);
+        this.questionRepository.save(question3G1L3);
+
+        List<Question> questionListG1L3 = new ArrayList<>(Arrays.asList(question1G1L3, question2G1L3, question3G1L3));
+
+        Game game1level3 = new Game("Погоди ја аритметичката операција",
+                "Вашата задача е да погодите која е бараната аритметичка операција.",
+                Level.Ниво3, "/images/Arithmetic-Operations.png", questionListG1L3);
+
+        this.gameRepository.save(game1level3);
+
+        //Игра 2
+        //Дамјан - Ниво 3-2: Одговори ги прашањата 2 (Ниво 3)
+        Response response1G2L3 = new Response("црвена");
+        Response response2G2L3 = new Response("црна");
+        Response response3G2L3 = new Response("бела");
+        Response response4G2L3 = new Response("портокалова");
+
+        Response response1G2L3r1 = new Response("Пепелашка");
+        Response response2G2L3r1 = new Response("Снежана");
+        Response response3G2L3r1 = new Response("Гаргамел");
+        Response response4G2L3r1 = new Response("Џери");
+
+        this.responseRepository.save(response1G2L3);
+        this.responseRepository.save(response2G2L3);
+        this.responseRepository.save(response3G2L3);
+        this.responseRepository.save(response4G2L3);
+
+        this.responseRepository.save(response1G2L3r1);
+        this.responseRepository.save(response2G2L3r1);
+        this.responseRepository.save(response3G2L3r1);
+        this.responseRepository.save(response4G2L3r1);
+
+        List<Response> responseListG2L3 = new ArrayList<>(Arrays.asList(response1G2L3, response2G2L3, response3G2L3, response4G2L3));
+        List<Response> responseListG2L3r1 = new ArrayList<>(Arrays.asList(response1G2L3r1, response2G2L3r1, response3G2L3r1, response4G2L3r1));
+
+        Question question1G2L3 = new Question("Каква боја е јаболкото?", "", responseListG2L3, response1G2L3);
+        Question question2G2L3 = new Question("Каква боја е морковот?", "", responseListG2L3, response4G2L3);
+        Question question3G2L3 = new Question("Како се вика принцезата кој заспала се додека нејзиниот принц" +
+                " не ја бакнал?", "", responseListG2L3r1, response2G2L3r1);
+
+        this.questionRepository.save(question1G2L3);
+        this.questionRepository.save(question2G2L3);
+        this.questionRepository.save(question3G2L3);
+
+        List<Question> questionListG2L3 = new ArrayList<>(Arrays.asList(question1G2L3, question2G2L3, question3G2L3));
+
+        Game game2level3 = new Game("Одговори ги прашањата",
+                "Дадени се соодветни прашања. Ваша задача е да ги одговорите соодветните прашања.",
+                Level.Ниво3, "/images/questions.png", questionListG2L3);
+
+        this.gameRepository.save(game2level3);
+
+        //Игра 3
+        Response response1G3L3 = new Response("Куќа");
+        Response response2G3L3 = new Response("Маче");
+        Response response3G3L3 = new Response("Книга");
+        Response response4G3L3 = new Response("Куче");
+
+        this.responseRepository.save(response1G3L3);
+        this.responseRepository.save(response2G3L3);
+        this.responseRepository.save(response3G3L3);
+        this.responseRepository.save(response4G3L3);
+
+        List<Response> responseListG3L3 = new ArrayList<>(Arrays.asList(response1G3L3, response2G3L3, response3G3L3, response4G3L3));
+
+
+        Question question1G3L3 = new Question("https://static.vecteezy.com/system/resources/previews/006/325/639/original/dog-cartoon-colored-clipart-illustration-free-vector.jpg", "", responseListG3L3, response4G3L3);
+        Question question2G3L3 = new Question("https://img.freepik.com/premium-vector/cartoon-funny-cat-sitting-white-background_29190-7708.jpg", "", responseListG3L3, response2G3L3);
+        Question question3G3L3 = new Question("https://clipartix.com/wp-content/uploads/2016/05/Books-book-clipart-clipart-cliparts-for-you.jpg", "", responseListG3L3, response3G3L3);
+
+        this.questionRepository.save(question1G3L3);
+        this.questionRepository.save(question2G3L3);
+        this.questionRepository.save(question3G3L3);
+
+        List<Question> questionListG3L3 = new ArrayList<>(Arrays.asList(question1G3L3, question2G3L3, question3G3L3));
+
+        Game game3level3 = new Game("Погоди што има на сликата",
+                "Играта се состои од неколку слики. Можете ли да погодите што има на сликата?",
+                Level.Ниво3, "/images/game_picture.jpg", questionListG3L3);
+
+        this.gameRepository.save(game3level3);
     }
 }
