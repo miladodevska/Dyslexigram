@@ -36,8 +36,15 @@ public class GamesController {
         return "games";
     }
 
+    @GetMapping("/finishGame")
+    public String getInfoPage(Model model) {
+        model.addAttribute("link", "/profile.html");
+        return "redirect:/profile.html";
+    }
+
     @GetMapping()
-    public String getGamesPage(Model model,
+    public String getGamesPage(@RequestParam(required = false) String searchTerm,
+                               Model model,
                                HttpServletRequest request) {
 
         // Check if nickname exists in cookie
@@ -57,7 +64,13 @@ public class GamesController {
             return "redirect:/login";
         }
 
-        List<Game> games = this.gameService.listAllGames();
+        List<Game> games;
+
+        if(searchTerm == null) {
+            games = this.gameService.listAllGames();
+        } else {
+            games = this.gameService.findAllByTitle(searchTerm);
+        }
 
         model.addAttribute("link", 2);
         model.addAttribute("games", games);
@@ -98,6 +111,10 @@ public class GamesController {
     }
 
 
+    @GetMapping("/targetPage")
+    public String targetPage() {
+        return "targetPage";
+    }
 
 
 }
