@@ -24,7 +24,8 @@ public class Game {
     @ManyToMany
     private List<Question> questions;
 
-    public Game() {}
+    public Game() {
+    }
 
     public Game(String title, String description, Level level, String img_url, List<Question> questions) {
         this.title = title;
@@ -33,6 +34,7 @@ public class Game {
         this.img_url = img_url;
         this.questions = questions;
     }
+
 
     public Game(String title, String description, Level level, String img_url, int points, List<Question> questions) {
         this.title = title;

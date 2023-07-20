@@ -38,6 +38,7 @@ public class GamesController {
 
     @GetMapping("/finishGame")
     public String getInfoPage(Model model) {
+        model.addAttribute("points", 15);
         model.addAttribute("link", "/profile.html");
         return "redirect:/profile.html";
     }
@@ -66,18 +67,20 @@ public class GamesController {
 
         List<Game> games;
 
-        if(searchTerm == null) {
+        if (searchTerm == null) {
             games = this.gameService.listAllGames();
         } else {
             games = this.gameService.findAllByTitle(searchTerm);
         }
 
+        User user = new User(nickname.replace("+", " "));
+        model.addAttribute("user", user);
         model.addAttribute("link", 2);
         model.addAttribute("games", games);
 
-        User user = new User(nickname.replace("+", " "), 0);
-        model.addAttribute("user", user);
-
+        if (!this.usersService.userExists(nickname.replace("+", " "))) {
+            this.usersService.save(nickname.replace("+", " "));
+        }
         return "games";
     }
 
@@ -95,7 +98,7 @@ public class GamesController {
         cookie.setPath("/"); //global cookie
         response.addCookie(cookie);
 
-        this.usersService.save(user, 0);
+        this.usersService.save(user);
         model.addAttribute("link", 2);
         return "redirect:/games";
     }
@@ -110,10 +113,14 @@ public class GamesController {
         return "game";
     }
 
+    @GetMapping("/finishGame/{gameId}")
+    public String finishGame(@PathVariable Long gameId, boolean isFinished) {
+        Game game = this.gameService.findById(gameId);
+        User user = this.usersService.listAllUsers().get(0);
 
-    @GetMapping("/targetPage")
-    public String targetPage() {
-        return "targetPage";
+        this.usersService.saveFinishedGame(user, game);
+
+        return "redirect:/profile";
     }
 
 

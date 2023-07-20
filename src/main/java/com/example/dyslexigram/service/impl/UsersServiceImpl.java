@@ -1,5 +1,6 @@
 package com.example.dyslexigram.service.impl;
 
+import com.example.dyslexigram.model.Game;
 import com.example.dyslexigram.model.User;
 import com.example.dyslexigram.model.exceptions.InvalidUserIdException;
 import com.example.dyslexigram.model.exceptions.UserNotFoundException;
@@ -35,18 +36,16 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public Optional<User> save(String nickname, int total_points) {
-        User userTosave = new User(nickname,total_points);
+    public Optional<User> save(String nickname) {
+        User userTosave = new User(nickname);
 
         return Optional.of(this.usersRepository.save(userTosave));
     }
 
     @Override
-    public User edit(Long id, String nickname, int total_points) {
+    public User edit(Long id, String nickname) {
         User userToEdit = this.findById(id);
         userToEdit.setNickname(nickname);
-        userToEdit.setTotal_points(total_points);
-
         return this.usersRepository.save(userToEdit);
     }
 
@@ -55,5 +54,18 @@ public class UsersServiceImpl implements UsersService {
     public void deleteUser(Long id) {
         if(id == null) throw new IllegalArgumentException();
         this.usersRepository.deleteById(id);
+    }
+
+    @Override
+    public boolean userExists(String nickname) {
+        return this.usersRepository.findByNickname(nickname).isPresent();
+    }
+
+    @Override
+    public void saveFinishedGame(User user, Game game) { //ALELUJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        List<Game> finishedGamesList = user.getFinishedGames();
+        finishedGamesList.add(game);
+        user.setFinishedGames(finishedGamesList);
+        this.usersRepository.save(user);
     }
 }

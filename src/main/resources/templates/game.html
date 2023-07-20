@@ -31,7 +31,7 @@
                         <img id="image_question" alt="question-image" hidden>
                         <div class="d-flex justify-content-center">
                             <h2>Поени: </h2>
-                            <h2 id="points" th:text="${game.getPoints()}"></h2>
+                            <h2 id="points">0</h2>
                         </div>
 
                     </div>
@@ -59,7 +59,7 @@
                 <div class="row justify-content-center mt-3 mb-2">
                     <div class="col col-lg-2">
 
-                        <a href="/profile" type="button" class="btn btn-lg btn-success btn-default w-100 response" id="finish" hidden>Заврши</a>
+                        <a th:href="@{'/games/finishGame/{gameId}' (gameId=${game.getId})}" type="button" class="btn btn-lg btn-success btn-default w-100 response" id="finish" hidden>Заврши</a>
 
                     </div>
                 </div>
